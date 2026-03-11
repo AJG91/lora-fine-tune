@@ -24,7 +24,7 @@ See [my website][my-website] for examples on how to use this code.
 If you use this project, please use the citation information provided by GitHub via the **“Cite this repository”** button or cite it as follows:
 
 ```bibtex
-@software{Garcia2026LoRA,
+@software{Garcia2026LoRAFineTune,
   author = {Alberto J. Garcia},
   title = {Parameter-Efficient Fine-Tuning with LoRA},
   year = {2026},
