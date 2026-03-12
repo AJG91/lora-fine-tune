@@ -1,0 +1,19 @@
+name: lora-fine-tune-env
+
+channels:
+  - conda-forge
+  - defaults
+  
+dependencies:
+  - python=3.12
+  - numpy=1.26.4
+  - pytorch=2.6.0
+  - datasets=4.4.1
+  - transformers=4.57.1
+  - accelerate==1.11.0
+  - peft==0.18.1
+  - openai==2.13
+  - gradio==5.49.1
+  - matplotlib=3.10
+  - jupyter=1.1
+  - pip
