@@ -2,8 +2,4 @@ model_name: "gpt2"
 api_model_name: "gpt-4.1-nano"
 
 seed: 42
-n_turns: 6
-
-docs_dir: "../data/raw/"
-log_dir: "../outputs/logs/"
-state_dir: "../outputs/state/"
+max_token_length: 128
