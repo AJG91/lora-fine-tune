@@ -3,3 +3,11 @@ api_model_name: "gpt-4.1-nano"
 
 seed: 42
 max_token_length: 128
+
+lr: 0.00002
+warmup_ratio: 0.1
+epochs: 5
+train_batch_size: 1
+strategy: "epoch"
+
+res_path: "../results/"
