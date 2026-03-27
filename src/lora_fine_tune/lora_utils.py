@@ -1,6 +1,6 @@
 from peft import LoraConfig, get_peft_model
 
-def apply_lora(model):
+def create_lora_model(model):
     config = LoraConfig(
         r=8,
         lora_alpha=16,
