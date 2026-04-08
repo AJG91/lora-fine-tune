@@ -41,7 +41,9 @@ class LocalLM():
         self.tokenizer: PreTrainedTokenizerBase = AutoTokenizer.from_pretrained(model_name)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.model = self.load_model()
-        self.lora_model = create_lora_model(self.model)
+
+        train_model = AutoModelForCausalLM.from_pretrained(model_name)
+        self.lora_model = create_lora_model(train_model)
 
     def clean_data(
         self,
@@ -212,14 +214,15 @@ class LocalLM():
     def generate(
         self,
         prompt: list[str] | str,
-        max_new_tokens: int = 100,
+        max_new_tokens: int = 20,
         do_sample: bool = True,
         top_k: int = 50,
         top_p: float = 0.95,
         temperature: float = 0.8,
         repetition_penalty: int | float = 1.2,
         skip_special_tokens: bool = True,
-        use_lora: bool = False
+        use_lora: bool = False,
+        verbose: bool = False
     ) -> tc.Tensor | GenerateOutput:
         """
         Tokenizes an input prompt, puts the model in evaluation model, and generates 
@@ -254,6 +257,8 @@ class LocalLM():
             If False, includes special tokens in the output text.
         use_lora : bool, optional (default=False)
             If True, the LoRA adapter is used.
+        verbose : bool, optional (default=False)
+            If True, prints out active model, model type, and model id.
 
         Returns
         -------
@@ -262,6 +267,9 @@ class LocalLM():
         """
         model = self._get_active_model(use_lora)
         inputs = self.tokenize_text(prompt)
+
+        if verbose:
+            print("ACTIVE MODEL:", type(model), id(model))
 
         model.eval()
         with tc.no_grad():
