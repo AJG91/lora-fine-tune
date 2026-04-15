@@ -1,5 +1,4 @@
 model_name: "gpt2"
-api_model_name: "gpt-4.1-nano"
 
 seed: 42
 max_token_length: 128
