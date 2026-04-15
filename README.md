@@ -2,7 +2,7 @@
 
 [my-website]: https://AJG91.github.io "my-website"
 
-This repository demonstrates how to efficiently fine tune a model using Low-rank adaptation (LoRA).
+This repository demonstrates how to efficiently fine tune a model using low-rank adaptation (LoRA).
 
 ## Getting Started
 
