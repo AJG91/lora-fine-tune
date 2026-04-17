@@ -8,5 +8,6 @@ def create_lora_model(model):
         lora_dropout=0.1,
         bias="none",
         task_type="CAUSAL_LM",
+        fan_in_fan_out=True,
     )
     return get_peft_model(model, config)
